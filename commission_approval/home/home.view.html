@@ -1,0 +1,143 @@
+<div class="container">
+  <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="/icon.png" alt="" width="200" height="150">
+    <h2>แบบฟอร์มขออนุมัติลดค่าคอมมิสชัน</h2>
+    <p class="lead">แบบฟอร์มสำหรับกรอกข้อมูลเพิ่มส่งคำร้องไปยังผู้บริหารสำหรับการอนุมัติ</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h4 class="mb-3">รายละเอียดผู้แนะนำการลงทุน</h4>
+      <form class="needs-validation" novalidate="" ng-submit="on_click_success()">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="firstName">ชื่อ</label>
+            <input type="text" class="form-control" ng-model="marketing_firstname" id="firstName" placeholder="" value="" required="">
+            <div class="invalid-feedback">
+              กรุณากรอกชื่อ
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="lastName">นามสกุล</label>
+            <input type="text" class="form-control" ng-model="marketing_lastname" id="lastName" placeholder="" value="" required="">
+            <div class="invalid-feedback">
+              กรุณากรอกนามสกุล
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="username">รหัสพนักงาน</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="member_id" ng-model="marketing_id" required="">
+              <div class="invalid-feedback" style="width: 100%;">
+                กรุณากรอกรหัสพนักงาน
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="username">สังกัด</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="group_id" ng-model="marketing_team" required="">
+              <div class="invalid-feedback" style="width: 100%;">
+                กรุณากรอกสังกัด
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="mb-4">
+
+        <h4 class="mb-3" style="margin-top: 20px">รายละเอียดลูกค้า</h4>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="firstName">ชื่อ</label>
+              <input type="text" class="form-control" id="customer_firstName" ng-model="customer_firstname" placeholder="" value="" required="">
+              <div class="invalid-feedback">
+                กรุณากรอกชื่อ
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="lastName">นามสกุล</label>
+              <input type="text" class="form-control" id="customer_lastName" ng-model="customer_lastname" placeholder="" value="" required="">
+              <div class="invalid-feedback">
+                กรุณากรอกนามสกุล
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="username">เลขที่บัญชี</label>
+              <div class="input-group">
+                <input type="text" class="form-control" required="" id="customer_bank_id" ng-model="customer_bank_id">
+                <div class="invalid-feedback" style="width: 100%;">
+                  กรอกรุณากรอกเลขที่บัญชี
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label for="username">เลขที่บัตรประชาชน</label>
+              <div class="input-group">
+                <input type="text" mask='9-9999-99999-99-9' ng-model="customer_id" id="customer_id" class="form-control" required="false">
+                <div class="invalid-feedback" style="width: 100%;">
+                  กรุณากรอกเลขที่บัตรประชาชน
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="mb-4">
+
+          <h4 class="mb-3" style="margin-top: 20px">ร้อยละ</h4>
+          <div class="form-group row" style="margin-left: 15px">
+            <label for="example-text-input" class="col-3 col-form-label">20 ล้านขึ้นไป (ต่อเดือน)</label>
+            <div class="col-9">
+              <input class="form-control" type="text" required="false" ng-model="percent_option_1">
+            </div>
+          </div>
+          <div class="form-group row" style="margin-left: 15px">
+            <label for="example-text-input" class="col-3 col-form-label">20-50 ล้านขึ้นไป (ต่อเดือน)</label>
+            <div class="col-9">
+              <input class="form-control" type="text" ng-model="percent_option_2">
+            </div>
+          </div>
+          <div class="form-group row" style="margin-left: 15px">
+            <label for="example-text-input" class="col-3 col-form-label">50-100 ล้านขึ้นไป (ต่อเดือน)</label>
+            <div class="col-9">
+              <input class="form-control" type="text" ng-model="percent_option_3">
+            </div>
+          </div>
+          <div class="form-group row" style="margin-left: 15px">
+            <label for="example-text-input" class="col-3 col-form-label">100 ล้านขึ้นไป (ต่อเดือน)</label>
+            <div class="col-9">
+              <input class="form-control" type="text" ng-model="percent_option_4">
+            </div>
+          </div>
+
+          <hr class="mb-4">
+          <h4 class="mb-3" style="margin-top: 20px">รายละเอียดเพิ่มเติม</h4>
+
+          <div class="form-group">
+            <label for="comment">เพิ่มเติม</label>
+            <textarea class="form-control" rows="5" ng-model="note_text"></textarea>
+            <div>
+              <input type="file" id="file" name="file" style="margin-top: 20px " ng-model="note_file"/>
+
+          </div>
+
+
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" style="margin-top: 20px" type="submit" ng-hide="loading">
+            ดำเนินการส่งคำร้อง</button>
+        <button class="btn btn-info btn-lg btn-block" style="margin-top: 20px" ng-show="loading">
+            กำลังดำเนินการ ...
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">© 2018 Country Group Securities</p>
+  </footer>
+</div>

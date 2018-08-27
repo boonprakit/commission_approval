@@ -1,0 +1,140 @@
+<div class="container">
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="/icon.png" alt="" width="200" height="150">
+    <h2>ผลการร้องขอ</h2>
+    <p class="lead">รายละเอียดข้อมูลแบบฟอร์มขออนุมัติลดค่าคอมมิสชันน ผลการร้องขอและข้อคิดเห็นจากผู้บริหาร</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h4 class="mb-3">รายละเอียดผู้แนะนำการลงทุน</h4>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td style="width: 30%">ชื่อ</td>
+            <td>{{ marketing_firstname || '-' }}</td>
+          </tr>
+          <tr>
+            <td>นามสกุล</td>
+            <td>{{ marketing_lastname || '-' }}</td>
+          </tr>
+          <tr>
+            <td>รหัสพนักงาน</td>
+            <td>{{ marketing_id || '-' }}</td>
+          </tr>
+          <tr>
+            <td>สังกัด</td>
+            <td>{{ marketing_team || '-' }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+<!-- <hr class="mb-4"> -->
+        <h4 class="mb-3" style="margin-top: 20px">รายละเอียดลูกค้า</h4>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td style="width: 30%">ชื่อ</td>
+              <td>{{ customer_firstname || '-' }}</td>
+            </tr>
+            <tr>
+              <td>นามสกุล</td>
+              <td>{{ customer_lastname || '-' }}</td>
+            </tr>
+            <tr>
+              <td>เลขที่บัญชี</td>
+              <td>{{ customer_bank_id || '-' }}</td>
+            </tr>
+            <tr>
+              <td>เลขที่บัตรประชาชน</td>
+              <td>{{ customer_id || '-' }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+          <h4 class="mb-3" style="margin-top: 20px">ร้อยละ</h4>
+
+          <table class="table">
+            <tbody>
+              <tr>
+                <td style="width: 30%">20 ล้านขึ้นไป (ต่อเดือน)</td>
+                <td style="width: 50%">{{ percent_option_1 || '-' }}</td>
+                <td>
+                  <button type="button" class="btn btn-success" ng-show="percent_option_1_first_comment &amp;&amp; percent_option_1_second_comment" style="width: 80px">อนุมัติ</button>
+                  <button type="button" class="btn btn-danger" ng-if="!percent_option_1_first_comment || !percent_option_1_second_comment" ng-if="" style="width: 80px">ไม่อนุมัติ</button>
+                </td>
+              </tr>
+              <tr>
+                <td>20-50 ล้านขึ้นไป (ต่อเดือน)</td>
+                <td>{{ percent_option_2 || '-' }}</td>
+                <td>
+                  <button type="button" class="btn btn-success" ng-show="percent_option_2_first_comment &amp;&amp; percent_option_2_second_comment" style="width: 80px">อนุมัติ</button>
+                  <button type="button" class="btn btn-danger" ng-if="!percent_option_2_first_comment || !percent_option_2_second_comment" ng-if="" style="width: 80px">ไม่อนุมัติ</button>
+                </td>
+              </tr>
+              <tr>
+                <td>50-100 ล้านขึ้นไป (ต่อเดือน)</td>
+                <td>{{ percent_option_3 || '-' }}</td>
+                <td>
+                  <button type="button" class="btn btn-success" ng-if="percent_option_3_first_comment && percent_option_3_second_comment" style="width: 80px">อนุมัติ</button>
+                  <button type="button" class="btn btn-danger" ng-if="!percent_option_3_first_comment || !percent_option_3_second_comment" ng-if="" style="width: 80px">ไม่อนุมัติ</button>
+                </td>
+              </tr>
+              <tr>
+                <td>100 ล้านขึ้นไป (ต่อเดือน)</td>
+                <td>{{ percent_option_4 || '-' }}</td>
+                <td>
+                  <button type="button" class="btn btn-success" ng-show="percent_option_4_first_comment &amp;&amp; percent_option_4_second_comment" style="width: 80px">อนุมัติ</button>
+                  <button type="button" class="btn btn-danger" ng-if="!percent_option_4_first_comment || !percent_option_4_second_comment" ng-if="" style="width: 80px">ไม่อนุมัติ</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4 class="mb-3" style="margin-top: 20px">รายละเอียดเพิ่มเติม</h4>
+
+          <table class="table">
+            <tbody>
+              <tr>
+                <td style="width: 30%">รายละเอียด</td>
+                <td>{{ note_text || '-' }}</td>
+              </tr>
+              <tr>
+                <td>Attached file</td>
+                <td><a href="/fileupload/{{note_file}}">Link</a></td>
+              </tr>
+            </tbody>
+          </table>
+
+
+        <h4 class="mb-3" style="margin-top: 40px">ความคิดเห็นผู้บริหาร</h4>
+
+        <table class="table">
+          <tbody>
+            <tr>
+              <td style="width: 30%">ดร.วีรพัฒน์ เพชรคุปต์ ประธารเจ้าหน้าที่บริหาร</td>
+              <td>
+                {{
+                  boss_1_comment || '-'
+                }}
+              </td>
+            </tr>
+            <tr>
+              <td>นายธนโชติ รุ่งสิทธิวัฒน์ กรรมการ</td>
+              <td>
+              {{
+                  boss_2_comment || '-'
+              }}
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
+
+    </div>
+  </div>
+</div>
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">© 2018 Country Group Securities</p>
+  </footer>
+</div>

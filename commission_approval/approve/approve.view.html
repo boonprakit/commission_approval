@@ -1,0 +1,235 @@
+<div class="container">
+  <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="/icon.png" alt="" width="200" height="150">
+    <h2>แบบฟอร์มสำหรับการอนุมัติลดค่าคอมมิสชัน</h2>
+    <p class="lead">แบบฟอร์มสำหรับการอนุมัติลดค่าคอมมัสชัน ระบบจะทำการส่งข้อมูลไปยังผู้ดูแลหลังจากทำการดำเนินการเสร็จสิ้น</p>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h4 class="mb-3">รายละเอียดผู้แนะนำการลงทุน</h4>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td style="width: 30%">ชื่อ</td>
+            <td>{{ marketing_firstname || '-' }}</td>
+          </tr>
+          <tr>
+            <td>นามสกุล</td>
+            <td>{{ marketing_lastname || '-' }}</td>
+          </tr>
+          <tr>
+            <td>รหัสพนักงาน</td>
+            <td>{{ marketing_id || '-' }}</td>
+          </tr>
+          <tr>
+            <td>สังกัด</td>
+            <td>{{ marketing_team || '-' }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+<!-- <hr class="mb-4"> -->
+        <h4 class="mb-3" style="margin-top: 20px">รายละเอียดลูกค้า</h4>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td style="width: 30%">ชื่อ</td>
+              <td>{{ customer_firstname || '-' }}</td>
+            </tr>
+            <tr>
+              <td>นามสกุล</td>
+              <td>{{ customer_lastname || '-' }}</td>
+            </tr>
+            <tr>
+              <td>เลขที่บัญชี</td>
+              <td>{{ customer_bank_id || '-' }}</td>
+            </tr>
+            <tr>
+              <td>เลขที่บัตรประชาชน</td>
+              <td>{{ customer_id || '-' }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+          <h4 class="mb-3" style="margin-top: 20px">ร้อยละ</h4>
+
+          <table class="table">
+            <tbody>
+              <tr>
+                <td style="width: 30%">20 ล้านขึ้นไป (ต่อเดือน)</td>
+                <td>{{ percent_option_1 || '-' }}</td>
+              </tr>
+              <tr>
+                <td>20-50 ล้านขึ้นไป (ต่อเดือน)</td>
+                <td>{{ percent_option_2 || '-' }}</td>
+              </tr>
+              <tr>
+                <td>50-100 ล้านขึ้นไป (ต่อเดือน)</td>
+                <td>{{ percent_option_3 || '-' }}</td>
+              </tr>
+              <tr>
+                <td>100 ล้านขึ้นไป (ต่อเดือน)</td>
+                <td>{{ percent_option_4 || '-' }}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4 class="mb-3" style="margin-top: 20px">รายละเอียดเพิ่มเติม</h4>
+
+          <table class="table">
+            <tbody>
+              <tr>
+                <td style="width: 30%">รายละเอียด</td>
+                <td>{{ note_text || '-' }}</td>
+              </tr>
+              <tr ng-if="note_file">
+                <td>Attached file</td>
+                <td><a href="/fileupload/{{note_file}}">Link</a></td>
+              </tr>
+            </tbody>
+          </table>
+
+        <div ng-show="user == 1">
+            <h4 class="mb-3" style="margin-top: 40px">ตอบคำร้อง</h4>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td style="width: 30%">20 ล้านขึ้นไป (ต่อเดือน)</td>
+                  <td>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="opt11" id="opt1-1" ng-model="percent_option_1_first_comment" ng-value="true">
+                      <label class="form-check-label" for="inlineRadio1">อนุมัติ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="opt11" id="opt1-2" ng-model="percent_option_1_first_comment" ng-value="false">
+                      <label class="form-check-label" for="inlineRadio2">ไม่อนุมัติ</label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>20-50 ล้านขึ้นไป (ต่อเดือน)</td>
+                  <td>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="opt21" id="opt2-1" ng-model="percent_option_2_first_comment" ng-value="true">
+                      <label class="form-check-label" for="inlineRadio1">อนุมัติ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="opt21" id="opt2-2" ng-model="percent_option_2_first_comment" ng-value="false">
+                      <label class="form-check-label" for="inlineRadio2">ไม่อนุมัติ</label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>50-100 ล้านขึ้นไป (ต่อเดือน)</td>
+                  <td>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="opt31" id="opt3-1" ng-model="percent_option_3_first_comment" ng-value="true">
+                      <label class="form-check-label" for="inlineRadio1">อนุมัติ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="opt31" id="opt3-2" ng-model="percent_option_3_first_comment" ng-value="false">
+                      <label class="form-check-label" for="inlineRadio2">ไม่อนุมัติ</label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>100 ล้านขึ้นไป (ต่อเดือน)</td>
+                  <td>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="opt41" id="opt4-1" ng-model="percent_option_4_first_comment" ng-value="true">
+                      <label class="form-check-label" for="inlineRadio1">อนุมัติ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="opt41" id="opt4-2" ng-model="percent_option_4_first_comment" ng-value="false">
+                      <label class="form-check-label" for="inlineRadio2">ไม่อนุมัติ</label>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+
+            </table>
+
+            <div class="form-group">
+              <label for="comment">แสดงความเห็น</label>
+              <textarea class="form-control" rows="5" ng-model="boss_1_comment"></textarea>
+         
+            </div>
+        </div>
+
+        <div ng-show="user == 2">
+            <h4 class="mb-3" style="margin-top: 40px">ตอบคำร้อง</h4>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td style="width: 30%">20 ล้านขึ้นไป (ต่อเดือน)</td>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="opt12" id="opt1-1" ng-model="percent_option_1_second_comment" ng-value="true">
+                                <label class="form-check-label" for="inlineRadio1">อนุมัติ</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="opt12" id="opt1-2" ng-model="percent_option_1_second_comment" ng-value="false">
+                                <label class="form-check-label" for="inlineRadio2">ไม่อนุมัติ</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>20-50 ล้านขึ้นไป (ต่อเดือน)</td>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="opt22" id="opt2-1" ng-model="percent_option_2_second_comment" ng-value="true">
+                                <label class="form-check-label" for="inlineRadio1">อนุมัติ</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="opt22" id="opt2-2" ng-model="percent_option_2_second_comment" ng-value="false">
+                                <label class="form-check-label" for="inlineRadio2">ไม่อนุมัติ</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>50-100 ล้านขึ้นไป (ต่อเดือน)</td>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="opt32" id="opt3-1" ng-model="percent_option_3_second_comment" ng-value="true">
+                                <label class="form-check-label" for="inlineRadio1">อนุมัติ</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="opt32" id="opt3-2" ng-model="percent_option_3_second_comment" ng-value="false">
+                                <label class="form-check-label" for="inlineRadio2">ไม่อนุมัติ</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>100 ล้านขึ้นไป (ต่อเดือน)</td>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="opt42" id="opt4-1" ng-model="percent_option_4_second_comment" ng-value="true">
+                                <label class="form-check-label" for="inlineRadio1">อนุมัติ</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="opt42" id="opt4-2" ng-model="percent_option_4_second_comment" ng-value="false">
+                                <label class="form-check-label" for="inlineRadio2">ไม่อนุมัติ</label>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="form-group">
+                <label for="comment">แสดงความเห็น</label>
+                <textarea class="form-control" rows="5" ng-model="boss_2_comment"></textarea>
+
+            </div>
+        </div>
+
+        <hr class="mb-4">
+        <button class="btn btn-success btn-lg btn-block" ng-click="on_success()" style="margin-top: 20px" type="submit" ng-hide="loading">SUBMIT</button>
+        <button class="btn btn-info btn-lg btn-block" style="margin-top: 20px" ng-show="loading">
+            กำลังดำเนินการ ...
+        </button>
+     </div>
+  </div>
+</div>
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">© 2018 Country Group Securities</p>
+  </footer>
+</div>
